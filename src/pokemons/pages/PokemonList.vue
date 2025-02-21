@@ -1,13 +1,26 @@
 <script setup lang="ts">
-import pokemonApi from '../api/pokemonApi';
-import type { PokemonListResponse } from '../interfaces/pokemons-list.response';
-pokemonApi.get<PokemonListResponse>('/pokemon?limit=45')
-.then(resp => console.log(resp.data.results[0].name));
+import {ref} from 'vue';
+import {getpokemons} from '../helpers/get-pokemons';
+import  type {Pokemon} from '../interfaces/pokemon';
+// const data = await getpokemons();
+
+// const pokemons = ref<Pokemon[]>(data);
+
+// getpokemons()
+// .then((data) =>pokemons.value = data);
+
+
+
 </script>
 
 <template lang="">
     <div>
-        <h2>pokemon list</h2>
+        <h1>pokemon list</h1>
+        <ul>
+            <li v-for="pokemon in pokemons" :key="pokemon.id">
+                {{pokemon.name}}
+            </li>
+        </ul>
     </div>
 </template>
 
