@@ -4,7 +4,7 @@ import type { Pokemon, PokemonListResponse, PokemonResponse } from "../interface
 // import { sleep } from "./sleep"; 
 
 
-export const getpokemons = async(): Promise<Pokemon[]>=>{
+export const getPokemons = async(): Promise<Pokemon[]>=>{
     // await sleep(5);
     const {data} = await pokemonApi.get<PokemonListResponse>('/pokemon?limit=45')
     const pokemonPromises: Promise<Pokemon>[] = [];
